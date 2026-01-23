@@ -9,3 +9,7 @@ help_kb = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="google", url="google.com")],
     [InlineKeyboardButton(text="My github", url="https://github.com/Nak1p934/learning_tgbots"), InlineKeyboardButton(text="yandex", url="yandex.ru")]
 ])
+
+imNotABot_kb = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text="Я не бот", callback_data="ready")]
+])
