@@ -27,14 +27,16 @@ async def clear_form(message: Message, state: FSMContext):
 @router.message(register.nickname, F.text)
 async def poccess_nickname(message: Message, state: FSMContext):
     await state.update_data(nickname=message.text)
+    await state.set_state(register.capcha)
     await message.answer("Супер\nТеперь пройдите капчу", reply_markup=imNotABot_kb)
 
 
 @router.callback_query(register.capcha, F.data == "ready")
 async def check_user(callback: CallbackQuery, state: FSMContext):
-        await state.update_data(capha=True)
-        await callback.message.answer("Проверка пройденна")
-        await state.clear()
+    await state.update_data(capcha=True)
+    await callback.answer()
+    await callback.message.answer("Проверка пройденна")
+    await state.clear()
 
 @router.message(CommandStart())
 async def start(message: Message):
