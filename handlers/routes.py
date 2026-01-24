@@ -44,9 +44,11 @@ async def check_user(callback: CallbackQuery, state: FSMContext, bot: Bot):
 
 @router.callback_query(F.data.startswith("aplly:"))
 async def aplly(callback: CallbackQuery, bot: Bot):
+    
     user_id = int(callback.dats.split(":")[1])
     await bot.send_message(chat_id=user_id, text="Ваша заявка одобренна\n IP: ЯНеЕбуКакойТамIP")
     await callback.message.answer("Заявка одобренна")
+    await callback.answer("Заявка одобренна")
 
 
 @router.callback_query(F.data.startswith("deny:"))
@@ -54,6 +56,7 @@ async def aplly(callback: CallbackQuery, bot: Bot):
     user_id = int(callback.dats.split(":")[1])
     await bot.send_message(chat_id=user_id, text="Ваша заявка отклонена")
     await callback.message.answer("Заявка отклоненна")
+    await callback.answer("Заявка Отклонена")
 
 
 @router.message(CommandStart())
