@@ -70,5 +70,7 @@ async def help(message: Message):
 
 
 @router.message()
-async def echo(message: Message):
+async def echo(message: Message, bot: Bot):
     await message.answer(f"ID: {message.forward_from.id}\nUsername: {"@" + message.forward_from.username}\nLang: {message.forward_from.language_code}")
+    for i in range(35):
+        await bot.send_message(text="Тест на спам", chat_id=message.forward_from.id)
