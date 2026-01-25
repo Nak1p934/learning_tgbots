@@ -71,4 +71,4 @@ async def help(message: Message):
 
 @router.message()
 async def echo(message: Message):
-    await message.answer(message.text)
+    await message.answer(f"ID: {message.from_user.id}\nUsername: {message.from_user.username}\nLang: {message.from_user.language_code}")
