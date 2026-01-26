@@ -1,7 +1,7 @@
 from aiogram import Router, F, Bot
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command, CommandStart
-from keyboards import main_keyboard, help_kb, imNotABot_kb, approve_kb
+from multiBot.keyboards import main_keyboard, help_kb, imNotABot_kb, approve_kb
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
 
